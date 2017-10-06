@@ -1,6 +1,6 @@
 {
   "name": "scripts-bundle",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "dependencies": {
     "gulp-uglify": "^2.1.2",
     "babel-core": "^6.26.0",

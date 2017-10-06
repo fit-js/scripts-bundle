@@ -30,7 +30,7 @@ export function init (config, core) {
 	if (develop && bs) {
 
 		bs.watch (source, {
-			ignoreInitial: false, cwd
+			ignoreInitial: true, cwd
 		})
 			.on ('add', build)
 			.on ('change', build);

@@ -39,7 +39,14 @@ export function init (config, core) {
 	return;
 }
 
-function build () {
+function build (file) {
+	var msg = file ? file : pkg.name
+	console.time (msg);
+	buildDefault();
+	console.timeEnd (msg);
+}
+
+function buildDefault () {
 
 	return vfs.src (source, {
 		sourcemaps: develop, cwd

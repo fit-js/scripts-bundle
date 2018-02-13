@@ -4,6 +4,7 @@ import { obj as thru } from 'through2';
 // import del from 'del';
 import vfs from 'vinyl-fs';
 import gulpPlumber from 'gulp-plumber';
+import gulpRename from 'gulp-rename';
 import gulpBabel from 'gulp-babel';
 import gulpUglify from 'gulp-uglify';
 import babelArrowPlugin from 'babel-plugin-transform-es2015-arrow-functions';
@@ -56,6 +57,7 @@ function buildDefault () {
 			plugins: [ babelArrowPlugin ]
 		}))
 		.pipe (develop ? thru() : gulpUglify())
+		.pipe (develop ? gulpRename({'suffix': '.dev'}) : gulpRename({'suffix': '.min'}))
 		.pipe (vfs.dest (output, {
 			sourcemaps: develop ? '.' : false
 		}));
